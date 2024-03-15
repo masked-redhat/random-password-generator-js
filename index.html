@@ -1,24 +1,25 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Create random passwords.">
+    <link rel="shortcut icon" href="./random.svg" type="image/x-icon">
     <title>Password Generator - JS</title>
     <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
 </head>
 
 <body>
     <header id="header">
-        <img src="./random.svg" alt="logo" id="logo" class="icon">
+        <img src="./icons/random.svg" alt="logo" id="logo" class="icon">
         <h1>Random Password Generator</h1>
     </header>
     <main>
         <section id="passBox">
             <div class="passOption">
-                <div id="password">rb22\adslk89--</div>
-                <button class="btn" id="copy"><img src="./copy.svg" alt="copy password" class="icon"></button>
+                <div id="password">Click on generate</div>
+                <button class="btn" id="copy"><img src="./icons/copy.svg" alt="copy password" class="icon"></button>
             </div>
             <button id="generate" class="btn">Generate Password</button>
         </section>
@@ -41,6 +42,10 @@
             <div class="passOption">
                 <label for="special">Add special characters</label>
                 <input type="checkbox" name="passChecks" id="special" checked>
+            </div>
+            <div class="passOption">
+                <label for="numeric">Add numerical characters</label>
+                <input type="checkbox" name="passChecks" id="numeric" checked>
             </div>
         </form>
     </main>
