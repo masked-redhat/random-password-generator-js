@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --icon-size: 3rem;
+    --page-width: 800px;
+    --bor-rad: 0.4rem;
+    --color-1: #222831;
+    --color-2: #31363F;
+    --color-3: #76ABAE;
+    --color-4: #EEEEEE;
+}
+
+button,
+input,
+select {
+    color: inherit;
+    background-color: inherit;
+    border: initial;
+    cursor: pointer;
+}
+
+input,
+select {
+    outline: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    border-radius: var(--bor-rad);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 2rem;
+    padding: 0.1rem;
+    border-radius: 0.5rem;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: var(--icon-size);
+    height: 1.85rem;
+    /* clip-path: polygon(14% 51%, 26% 37%, 46% 55%, 73% 24%, 85% 37%, 46% 74%); */
+    clip-path: polygon(14% 49%, 22% 35%, 39% 50%, 71% 18%, 81% 29%, 40% 68%);
+    transform: scale(0);
+    background-color: var(--color-4);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+body {
+    background: var(--color-3);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    min-width: var(--icon-size);
+    max-width: var(--icon-size);
+    min-height: var(--icon-size);
+    max-height: var(--icon-size);
+    filter: invert();
+}
+
+#header {
+    align-items: center;
+    background: var(--color-1);
+}
+
+#header h1 {
+    font-weight: 700;
+}
+
+#header,
+main,
+#footer {
+    display: flex;
+    width: var(--page-width);
+    padding: 1rem;
+    gap: 1rem;
+}
+
+main {
+    flex-direction: column;
+}
+
+.passOption {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    background: color-mix(in srgb, var(--color-2) 30%, transparent);
+    margin-bottom: 0.2rem;
+    padding: 0.4rem;
+}
+
+.passOption #password,
+.passOption label {
+    width: 100%;
+    height: var(--icon-size);
+    display: flex;
+    align-items: center;
+    text-indent: 1rem;
+}
+
+
+.passOption input {
+    min-width: var(--icon-size);
+    max-width: var(--icon-size);
+    height: var(--icon-size);
+    padding: 0.6rem;
+    background: var(--color-2);
+}
+
+#passLength {
+    text-align: center;
+    height: 3rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    background: var(--color-2);
+}
+
+#password {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+#generate {
+    text-align: center;
+    width: 100%;
+    height: var(--icon-size);
+    margin-top: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: var(--color-4);
+    color: #00224D;
+    transition: all 0.2s ease;
+}
+
+#generate:hover {
+    background-color: var(--color-2);
+    color: var(--color-4)
+}
+
+#copy {
+    height: var(--icon-size);
+    background: var(--color-2);
+    transition: all .2s ease;
+}
+
+#copy:hover {
+    background-color: var(--color-4);
+}
+
+#copy:hover .icon {
+    filter: none;
+}
+
+#copy .icon {
+    padding: 0.6rem;
+    pointer-events: none;
+}
+
+#footer {
+    background: var(--color-1);
+    ;
+}
+
+#footer p {
+    text-align: center;
+    width: 100%;
+}
