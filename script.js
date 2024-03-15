@@ -79,3 +79,9 @@ copyBtn.onclick = () => {
         copyBtn.disabled = false;
     }, 400);
 }
+
+document.body.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        generateBtn.click();
+    }
+})
