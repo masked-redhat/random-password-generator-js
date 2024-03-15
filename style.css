@@ -43,6 +43,22 @@ select {
     border-radius: var(--bor-rad);
 }
 
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-4);
+}
+
 input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -169,7 +185,8 @@ main {
     transition: all 0.2s ease;
 }
 
-#generate:hover, #copy:active {
+#generate:hover,
+#copy:active {
     background-color: var(--color-2);
     color: var(--color-4)
 }
@@ -185,7 +202,8 @@ main {
     background-color: var(--color-2);
 }
 
-#copy:hover, #copy:active {
+#copy:hover,
+#copy:active {
     background-color: var(--color-4);
 }
 
@@ -216,8 +234,13 @@ main {
 }
 
 @media only screen and (max-width: 400px) {
-    #header h1{
+    #header h1 {
         font-size: 1.2rem;
     }
-}
 
+    #password {
+        overflow: auto;
+        text-wrap: nowrap;
+        /* font-size: 1rem; */
+    }
+}
