@@ -45,6 +45,7 @@ select {
 
 ::-webkit-scrollbar {
     width: 2px;
+    height: 2px;
 }
 
 ::-webkit-scrollbar-track {
@@ -52,7 +53,7 @@ select {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-2);
+    background: var(--color-4);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -171,6 +172,8 @@ main {
     font-size: 1.4rem;
     font-weight: 500;
     letter-spacing: 1px;
+    overflow: auto;
+    text-wrap: nowrap;
 }
 
 #generate {
@@ -236,11 +239,5 @@ main {
 @media only screen and (max-width: 400px) {
     #header h1 {
         font-size: 1.2rem;
-    }
-
-    #password {
-        overflow: auto;
-        text-wrap: nowrap;
-        /* font-size: 1rem; */
     }
 }
