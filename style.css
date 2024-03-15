@@ -130,6 +130,7 @@ main {
     font-size: 1.05rem;
     cursor: pointer;
     user-select: none;
+    text-transform: capitalize;
 }
 
 .passOption input,
@@ -212,3 +213,10 @@ main {
         --page-width: 100%;
     }
 }
+
+@media only screen and (max-width: 400px) {
+    #header h1{
+        font-size: 1.2rem;
+    }
+}
+

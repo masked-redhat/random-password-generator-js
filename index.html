@@ -18,33 +18,33 @@
     <main>
         <section id="passBox">
             <div class="passOption">
-                <div id="password">Click on generate</div>
+                <div id="password">...</div>
                 <button class="btn" id="copy"><img src="./icons/copy.svg" alt="copy password" class="icon"></button>
             </div>
             <button id="generate" class="btn">Generate Password</button>
         </section>
         <form id="passOptions" onsubmit="return false;">
             <div class="passOption">
-                <label for="passLength">Length of Password</label>
+                <label for="passLength">Length</label>
                 <select name="passLength" id="passLength">
                     <option value="8">8</option>
                     <option value="16">16</option>
                 </select>
             </div>
             <div class="passOption">
-                <label for="lowercase">Add Lowercase letters</label>
+                <label for="lowercase">Lowercase letters</label>
                 <input type="checkbox" name="passChecks" id="lowercase" checked>
             </div>
             <div class="passOption">
-                <label for="uppercase">Add Uppercase letters</label>
+                <label for="uppercase">Uppercase letters</label>
                 <input type="checkbox" name="passChecks" id="uppercase" checked>
             </div>
             <div class="passOption">
-                <label for="special">Add special characters</label>
+                <label for="special">special characters</label>
                 <input type="checkbox" name="passChecks" id="special" checked>
             </div>
             <div class="passOption">
-                <label for="numeric">Add numerical characters</label>
+                <label for="numeric">numbers</label>
                 <input type="checkbox" name="passChecks" id="numeric" checked>
             </div>
         </form>
