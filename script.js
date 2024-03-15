@@ -12,6 +12,31 @@ function getPassOptions(passChecks) {
 
 const randomNumFrom0To = (number) => Math.floor(Math.random() * number);
 
+class Password {
+    constructor(len) {
+        this.length = len;
+        this.password = '';
+    }
+
+    contain(wordFrom, howMany = 1) {
+        for (let i = 0; i < howMany; i++) {
+            let randomWord = wordFrom[randomNumFrom0To(wordFrom.length)];
+            this.password += randomWord;
+        }
+    }
+
+    setPassword(passwordElement) {
+        passwordElement.innerText = this.password;
+    }
+
+    get pass() {
+        return this.password.slice(0, this.length);
+    }
+    get leng() {
+        return this.pass.length;
+    }
+}
+
 const alphabetsL = 'abcdefghijklmnopqrstuvwxyz';
 const alphabetsU = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const specialC = "&*}],=-).+;'/{[(\\@#%^";
@@ -19,7 +44,7 @@ const numericC = '1234567890';
 
 const passWords = { 'lowercase': alphabetsL, 'uppercase': alphabetsU, 'special': specialC, 'numeric': numericC };
 
-const passwordD = document.getElementById('password');
+const password = document.getElementById('password');
 
 const passLength = document.getElementById('passLength');
 
@@ -36,9 +61,9 @@ passChecks.forEach(e => {
 let generateBtn = document.getElementById('generate');
 
 generateBtn.onclick = () => {
-    let password = '';
-    const length = Number(passLength.value);
-    const options = passOptions.options;
+    let length = Number(passLength.value);
+    let p = new Password(length);
+    let options = passOptions.options;
     let optionLength = passOptions.length;
 
     const passCount = Array.from(Array(passOptions.length), () => 0);
@@ -46,24 +71,19 @@ generateBtn.onclick = () => {
     for (let i = 0; i < length - optionLength; i++) {
         let random = randomNumFrom0To(optionLength);
         passCount[random] += 1;
-        let wordFrom = passWords[options[random]];
-        random = wordFrom[randomNumFrom0To(wordFrom.length)];
-        password += random;
+        p.contain(passWords[options[random]]);
     }
     for (let i = 0; i < optionLength; i++) {
         if (passCount[i] == 0) {
-            let wordFrom = passWords[options[i]];
-            let random = wordFrom[randomNumFrom0To(wordFrom.length)];
-            password += random;
+            p.contain(passWords[options[i]]);
         }
     }
-    for (let i = password.length; i < length; i++) {
+    for (let i = (p.pass).length; i < length; i++) {
         let random = randomNumFrom0To(optionLength);
-        let wordFrom = passWords[options[random]];
-        random = wordFrom[randomNumFrom0To(wordFrom.length)];
-        password += random;
+        p.contain(passWords[options[random]]);
     }
-    passwordD.innerText = password;
+
+    p.setPassword(password)
 }
 
 let copyBtn = document.getElementById('copy');
