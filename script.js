@@ -21,7 +21,6 @@ class Password {
     contain(wordFrom, howMany = 1) {
         for (let i = 0; i < howMany; i++) {
             let l = wordFrom.length == 1 ? 0 : randomNumFrom0To(wordFrom.length);
-            console.log(wordFrom[l]);
             let randomNum = randomNumFrom0To(wordFrom[l][1], wordFrom[l][0]);
             this.password += String.fromCharCode(randomNum);
         }
