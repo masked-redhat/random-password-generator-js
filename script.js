@@ -10,7 +10,7 @@ function getPassOptions(passChecks) {
     return { options: passOptions, length: selectedN };
 }
 
-const randomNumFrom0To = (number) => Math.floor(Math.random() * number);
+const randomNumFrom0To = (number, from = 0) => from + Math.floor(Math.random() * (number - from));
 
 class Password {
     constructor(len) {
@@ -20,8 +20,10 @@ class Password {
 
     contain(wordFrom, howMany = 1) {
         for (let i = 0; i < howMany; i++) {
-            let randomWord = wordFrom[randomNumFrom0To(wordFrom.length)];
-            this.password += randomWord;
+            let l = wordFrom.length == 1 ? 0 : randomNumFrom0To(wordFrom.length);
+            console.log(wordFrom[l]);
+            let randomNum = randomNumFrom0To(wordFrom[l][1], wordFrom[l][0]);
+            this.password += String.fromCharCode(randomNum);
         }
     }
 
@@ -37,12 +39,7 @@ class Password {
     }
 }
 
-const alphabetsL = 'abcdefghijklmnopqrstuvwxyz';
-const alphabetsU = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const specialC = "&*}],=-).+;'/{[(\\@#%^";
-const numericC = '1234567890';
-
-const passWords = { 'lowercase': alphabetsL, 'uppercase': alphabetsU, 'special': specialC, 'numeric': numericC };
+const passWords = { 'lowercase': [[97, 122]], 'uppercase': [[65, 90]], 'special': [[32, 47], [58, 64], [91, 96], [123, 126]], 'numeric': [[48, 57]] };
 
 const password = document.getElementById('password');
 
